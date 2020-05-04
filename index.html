@@ -1,22 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="no-js" lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Dashboard</title>
-    <link rel="stylesheet" href="./Assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css"
+        integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
     <link rel="stylesheet" href="./Assets/css/style.css">
 </head>
+
 <body>
     <header>
 
     </header>
-    <aside>
-        
-    </aside>
-    <main>
-
+    <main class="grid-container grid-frame">
+        <div class="grid-x">
+            <div class="grid-y">
+                <div class="cell">
+                    <label for="searchBox" class="input-group-label bold">Search for City</label>
+                    <div class="input-group">
+                        <input class="input-group-field" id="searchBox" type="text">
+                        <div class="input-group-button">
+                            <input type="submit" class="button" value="Submit">
+                        </div>
+                    </div>
+                </div>
+                <div class="cell">
+                    <ul id="city-buttons">
+                    </ul>
+                </div>
+            </div>
+            <div class="grid-y">
+               
+            </div>
+        </div>
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js"
+        integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous"></script>
+
     <script src="./Assets/js/script.js"></script>
 </body>
+
 </html>
