@@ -1,0 +1,178 @@
+{
+    "city": {
+        "id": 5308655,
+        "name": "Phoenix",
+        "coord": {
+            "lon": -112.074,
+            "lat": 33.4484
+        },
+        "country": "US",
+        "population": 1445632,
+        "timezone": -25200
+    },
+    "cod": "200",
+    "message": 0.0784444,
+    "cnt": 5,
+    "list": [
+        {
+            "dt": 1588618800,
+            "sunrise": 1588595791,
+            "sunset": 1588644806,
+            "temp": {
+                "day": 84.72,
+                "min": 84.72,
+                "max": 86.34,
+                "night": 86.34,
+                "eve": 84.72,
+                "morn": 84.72
+            },
+            "feels_like": {
+                "day": 75.81,
+                "night": 78.46,
+                "eve": 75.81,
+                "morn": 75.81
+            },
+            "pressure": 1011,
+            "humidity": 14,
+            "weather": [
+                {
+                    "id": 800,
+                    "main": "Clear",
+                    "description": "sky is clear",
+                    "icon": "01n"
+                }
+            ],
+            "speed": 9.01,
+            "deg": 243,
+            "clouds": 1
+        },
+        {
+            "dt": 1588705200,
+            "sunrise": 1588682136,
+            "sunset": 1588731252,
+            "temp": {
+                "day": 93.07,
+                "min": 81.23,
+                "max": 100.38,
+                "night": 91.89,
+                "eve": 100.38,
+                "morn": 81.23
+            },
+            "feels_like": {
+                "day": 86.32,
+                "night": 87.12,
+                "eve": 92.5,
+                "morn": 75.7
+            },
+            "pressure": 1013,
+            "humidity": 9,
+            "weather": [
+                {
+                    "id": 800,
+                    "main": "Clear",
+                    "description": "sky is clear",
+                    "icon": "01d"
+                }
+            ],
+            "speed": 4.21,
+            "deg": 115,
+            "clouds": 0
+        },
+        {
+            "dt": 1588791600,
+            "sunrise": 1588768483,
+            "sunset": 1588817699,
+            "temp": {
+                "day": 96.8,
+                "min": 83.44,
+                "max": 104.5,
+                "night": 92.55,
+                "eve": 104.5,
+                "morn": 83.44
+            },
+            "feels_like": {
+                "day": 89.71,
+                "night": 83.66,
+                "eve": 92.86,
+                "morn": 77
+            },
+            "pressure": 1011,
+            "humidity": 8,
+            "weather": [
+                {
+                    "id": 800,
+                    "main": "Clear",
+                    "description": "sky is clear",
+                    "icon": "01d"
+                }
+            ],
+            "speed": 4.81,
+            "deg": 128,
+            "clouds": 0
+        },
+        {
+            "dt": 1588878000,
+            "sunrise": 1588854831,
+            "sunset": 1588904145,
+            "temp": {
+                "day": 95.56,
+                "min": 84.15,
+                "max": 103.46,
+                "night": 90.07,
+                "eve": 103.46,
+                "morn": 84.15
+            },
+            "feels_like": {
+                "day": 88.88,
+                "night": 78.96,
+                "eve": 91.09,
+                "morn": 79.2
+            },
+            "pressure": 1010,
+            "humidity": 8,
+            "weather": [
+                {
+                    "id": 803,
+                    "main": "Clouds",
+                    "description": "broken clouds",
+                    "icon": "04d"
+                }
+            ],
+            "speed": 3.87,
+            "deg": 168,
+            "clouds": 78
+        },
+        {
+            "dt": 1588964400,
+            "sunrise": 1588941180,
+            "sunset": 1588990591,
+            "temp": {
+                "day": 92.03,
+                "min": 82.56,
+                "max": 101.21,
+                "night": 90.18,
+                "eve": 101.21,
+                "morn": 82.56
+            },
+            "feels_like": {
+                "day": 86.58,
+                "night": 80.96,
+                "eve": 91.44,
+                "morn": 78.01
+            },
+            "pressure": 1012,
+            "humidity": 12,
+            "weather": [
+                {
+                    "id": 800,
+                    "main": "Clear",
+                    "description": "sky is clear",
+                    "icon": "01d"
+                }
+            ],
+            "speed": 3.36,
+            "deg": 244,
+            "clouds": 0
+        }
+    ]
+}
