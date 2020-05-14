@@ -2,6 +2,7 @@
 var searchbox = document.querySelector("#searchBox");
 var submitButton = document.querySelector("#submitButton");
 var cityList = document.querySelector("#cityList");
+var fiveDay = document.querySelector("#fiveDay");
 
 var currentCity = document.querySelector("#currentCity");
 var currentDate = document.querySelector("#currentDate");
@@ -23,11 +24,18 @@ function displayCityInfo() {
     }).then(function (response) {
         message = JSON.stringify(response);
         console.log(message);
-        
+        var dayTwoDate = response.list[1].dt;
+        var dayTwoIcon = response.list[1].weather.icon;
         var daytwoTemp = response.list[1].temp.max;
+        var dayTwoHumidity = response.list[1].humidity;
         $("#dayTwoTemp").html(daytwoTemp);
         console.log(response.list[1].temp.max);
+        for (let i = 1; i < 6; i++) {
+            var day = document.createElement("div");
+            var date = document.createElement("h3");
+            
 
+        }
     });
 }
 
