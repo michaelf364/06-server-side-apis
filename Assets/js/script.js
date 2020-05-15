@@ -28,6 +28,7 @@ function displayCityInfo() {
         for (let i = 0; i < 5; i++) {
             var card = document.createElement("div");
             card.setAttribute("class", "card");
+            card.setAttribute("id", "days");
             var cardSection = document.createElement("div");
             cardSection.setAttribute("class", "card-section");
             var date = document.createElement("h3");
