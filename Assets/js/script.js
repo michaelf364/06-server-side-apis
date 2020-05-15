@@ -24,17 +24,25 @@ function displayCityInfo() {
     }).then(function (response) {
         message = JSON.stringify(response);
         console.log(message);
-        var dayTwoDate = response.list[1].dt;
-        var dayTwoIcon = response.list[1].weather.icon;
-        var daytwoTemp = response.list[1].temp.max;
-        var dayTwoHumidity = response.list[1].humidity;
-        $("#dayTwoTemp").html(daytwoTemp);
         console.log(response.list[1].temp.max);
-        for (let i = 1; i < 6; i++) {
-            var day = document.createElement("div");
+        for (let i = 0; i < 5; i++) {
+            var card = document.createElement("div");
+            card.setAttribute("class", "card");
+            var cardSection = document.createElement("div");
+            cardSection.setAttribute("class", "card-section");
             var date = document.createElement("h3");
-            
-
+            var icon = document.createElement("i")
+            var temp = document.createElement("p");
+            var humid = document.createElement("p");
+            date.textContent = response.list[i].dt;
+            temp.textContent = response.list[i].temp.max;
+            humid.innerHTML = response.list[i].humidity;
+            fiveDay.appendChild(card);
+            card.appendChild(cardSection);
+            cardSection.appendChild(date);
+            cardSection.appendChild(icon);
+            cardSection.appendChild(temp);
+            cardSection.appendChild(humid);
         }
     });
 }
