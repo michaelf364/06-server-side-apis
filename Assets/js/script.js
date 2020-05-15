@@ -16,7 +16,7 @@ function displayCityInfo() {
     // http://api.openweathermap.org/data/2.5/forecast/daily?q=Phoenix&cnt=6&units=imperial&appid=166a433c57516f51dfab1f7edaed8413
     // api.openweathermap.org/data/2.5/uvi?appid=b8e34f445d2a2fa271c223fa00bafb17&lat={lat}&lon={lon}
     var city = $(this).attr("data-name");
-    var queryURL = "://api.openweathermap.org/data/2.5/forecast/daily?q=" + city + "&units=imperial&cnt=5&appid=166a433c57516f51dfab1f7edaed8413";
+    var queryURL = "https://api.openweathermap.org/data/2.5/forecast/daily?q=" + city + "&units=imperial&cnt=5&appid=166a433c57516f51dfab1f7edaed8413";
     var message = "";
     $.ajax({
         url: queryURL,
