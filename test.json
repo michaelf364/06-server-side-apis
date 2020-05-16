@@ -1,122 +1,178 @@
-[
-    {
-        "id": "168",
-        "user_key": "1",
-        "style": "analogy",
-        "difficulty": "0",
-        "category": "General Nerd",
-        "question": "Sith is to Jedi as Dalek is to...",
-        "answer": "Timelords\/Gallifrayan",
-        "tags": "general,pop-culture",
-        "meta": "",
-        "image": null,
-        "reference": null,
-        "datecreated": "2015-07-22 17:20:36",
-        "datemodified": "2015-07-27 17:39:07"
+{
+    "city": {
+        "id": 5308655,
+        "name": "Phoenix",
+        "coord": {
+            "lon": -112.074,
+            "lat": 33.4484
+        },
+        "country": "US",
+        "population": 1445632,
+        "timezone": -25200
     },
-    {
-        "id": "169",
-        "user_key": "1",
-        "style": "analogy",
-        "difficulty": "0",
-        "category": "General Nerd",
-        "question": "Marty McFly is to the Delorean as The Doctor is to...",
-        "answer": "The Tardis",
-        "tags": "general,pop-culture",
-        "meta": "",
-        "image": null,
-        "reference": null,
-        "datecreated": "2015-07-22 17:20:36",
-        "datemodified": "2015-07-27 17:39:07"
-    },
-    {
-        "id": "170",
-        "user_key": "1",
-        "style": "analogy",
-        "difficulty": "0",
-        "category": "General Nerd",
-        "question": "River Song is to Rory Williams as Luke Skywalker is to...",
-        "answer": "Darth Vader\/Anikin Skywalker",
-        "tags": "general,pop-culture",
-        "meta": "",
-        "image": null,
-        "reference": null,
-        "datecreated": "2015-07-22 17:20:36",
-        "datemodified": "2015-07-27 17:39:07"
-    },
-    {
-        "id": "171",
-        "user_key": "1",
-        "style": "analogy",
-        "difficulty": "0",
-        "category": "General Nerd",
-        "question": "Link is to Zelda as Mario is to...",
-        "answer": "Princess Peach",
-        "tags": "general,pop-culture",
-        "meta": "",
-        "image": null,
-        "reference": null,
-        "datecreated": "2015-07-22 17:20:36",
-        "datemodified": "2015-07-27 17:39:07"
-    },
-    {
-        "id": "172",
-        "user_key": "1",
-        "style": "analogy",
-        "difficulty": "0",
-        "category": "General Nerd",
-        "question": "The Millennium Falcon is to Han Solo as The Normandy is to...",
-        "answer": "Commander Shepard",
-        "tags": "general,pop-culture",
-        "meta": "",
-        "image": null,
-        "reference": null,
-        "datecreated": "2015-07-22 17:20:36",
-        "datemodified": "2015-07-27 17:39:07"
-    },
-    {
-        "id": "173",
-        "user_key": "1",
-        "style": "analogy",
-        "difficulty": "0",
-        "category": "General Nerd",
-        "question": "SkyNet is to John Connor as Ganon is to...",
-        "answer": "Link",
-        "tags": "general,pop-culture",
-        "meta": "",
-        "image": null,
-        "reference": null,
-        "datecreated": "2015-07-22 17:20:36",
-        "datemodified": "2015-07-27 17:39:07"
-    },
-    {
-        "id": "174",
-        "user_key": "1",
-        "style": "analogy",
-        "difficulty": "0",
-        "category": "General Nerd",
-        "question": "Mario is to plumber as Clark Kent is to...",
-        "answer": "Reporter",
-        "tags": "general,pop-culture",
-        "meta": "",
-        "image": null,
-        "reference": null,
-        "datecreated": "2015-07-22 17:20:36",
-        "datemodified": "2015-07-27 17:39:07"
-    },
-    {
-        "id": "175",
-        "user_key": "1",
-        "style": "analogy",
-        "difficulty": "0",
-        "category": "General Nerd",
-        "question": "Ironman is to the Avengers as Batman is to...",
-        "answer": "The Justice League",
-        "tags": "general,pop-culture",
-        "meta": "",
-        "image": null,
-        "reference": null,
-        "datecreated": "2015-07-22 17:20:36",
-        "datemodified": "2015-07-27 17:39:07"
-    }
-]
+    "cod": "200",
+    "message": 0.4735085,
+    "cnt": 5,
+    "list": [
+        {
+            "dt": 1589655600,
+            "sunrise": 1589632021,
+            "sunset": 1589682154,
+            "temp": {
+                "day": 87.22,
+                "min": 85.37,
+                "max": 96.13,
+                "night": 86.13,
+                "eve": 96.13,
+                "morn": 85.37
+            },
+            "feels_like": {
+                "day": 82.83,
+                "night": 76.82,
+                "eve": 86.61,
+                "morn": 82.53
+            },
+            "pressure": 1011,
+            "humidity": 20,
+            "weather": [
+                {
+                    "id": 800,
+                    "main": "Clear",
+                    "description": "sky is clear",
+                    "icon": "01d"
+                }
+            ],
+            "speed": 4.27,
+            "deg": 237,
+            "clouds": 10
+        },
+        {
+            "dt": 1589742000,
+            "sunrise": 1589718382,
+            "sunset": 1589768598,
+            "temp": {
+                "day": 91.02,
+                "min": 79.79,
+                "max": 99.28,
+                "night": 84.54,
+                "eve": 99.18,
+                "morn": 79.79
+            },
+            "feels_like": {
+                "day": 84.24,
+                "night": 78.28,
+                "eve": 87.06,
+                "morn": 75.07
+            },
+            "pressure": 1012,
+            "humidity": 14,
+            "weather": [
+                {
+                    "id": 800,
+                    "main": "Clear",
+                    "description": "sky is clear",
+                    "icon": "01d"
+                }
+            ],
+            "speed": 6.58,
+            "deg": 178,
+            "clouds": 7
+        },
+        {
+            "dt": 1589828400,
+            "sunrise": 1589804744,
+            "sunset": 1589855042,
+            "temp": {
+                "day": 90.72,
+                "min": 78.93,
+                "max": 99.28,
+                "night": 83.41,
+                "eve": 97.92,
+                "morn": 78.93
+            },
+            "feels_like": {
+                "day": 82.27,
+                "night": 73.89,
+                "eve": 83.03,
+                "morn": 75.85
+            },
+            "pressure": 1011,
+            "humidity": 14,
+            "weather": [
+                {
+                    "id": 800,
+                    "main": "Clear",
+                    "description": "sky is clear",
+                    "icon": "01d"
+                }
+            ],
+            "speed": 9.44,
+            "deg": 185,
+            "clouds": 0
+        },
+        {
+            "dt": 1589914800,
+            "sunrise": 1589891108,
+            "sunset": 1589941485,
+            "temp": {
+                "day": 84.13,
+                "min": 73.76,
+                "max": 87.08,
+                "night": 75.07,
+                "eve": 85.15,
+                "morn": 73.76
+            },
+            "feels_like": {
+                "day": 74.41,
+                "night": 64.22,
+                "eve": 69.08,
+                "morn": 69.87
+            },
+            "pressure": 1010,
+            "humidity": 21,
+            "weather": [
+                {
+                    "id": 800,
+                    "main": "Clear",
+                    "description": "sky is clear",
+                    "icon": "01d"
+                }
+            ],
+            "speed": 13.29,
+            "deg": 211,
+            "clouds": 0
+        },
+        {
+            "dt": 1590001200,
+            "sunrise": 1589977473,
+            "sunset": 1590027928,
+            "temp": {
+                "day": 80.04,
+                "min": 69.69,
+                "max": 87.1,
+                "night": 80.71,
+                "eve": 87.1,
+                "morn": 69.69
+            },
+            "feels_like": {
+                "day": 75.2,
+                "night": 72.54,
+                "eve": 78.78,
+                "morn": 63.88
+            },
+            "pressure": 1014,
+            "humidity": 14,
+            "weather": [
+                {
+                    "id": 800,
+                    "main": "Clear",
+                    "description": "sky is clear",
+                    "icon": "01d"
+                }
+            ],
+            "speed": 0.96,
+            "deg": 323,
+            "clouds": 0
+        }
+    ]
+}
