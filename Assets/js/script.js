@@ -22,16 +22,11 @@ function initialize() {
 }
 
 function fiveDayForecast() {
-    var queryURL = "https://api.openweathermap.org/data/2.5/forecast/daily?q=" + city + "&units=imperial&cnt=6&appid=166a433c57516f51dfab1f7edaed8413";
-    var message = "";
+    var queryURL = "https://api.openweathermap.org/data/2.5/forecast/daily?q=" + city + "&units=imperial&cnt=5&appid=166a433c57516f51dfab1f7edaed8413";
     $.ajax({
         url: queryURL,
         method: "GET"
     }).then(function (response) {
-        message = JSON.stringify(response);
-        console.log(message);
-        console.log(response.list[1].temp.max);
-        // for (let i = 0; i < 5; i++) {
         for (var day of response.list) {
             var card = document.createElement("div");
             card.setAttribute("class", "card cell small-2");
@@ -52,8 +47,6 @@ function fiveDayForecast() {
             cardSection.appendChild(icon);
             cardSection.appendChild(temp);
             cardSection.appendChild(humid);
-            console.log(day.weather[0].icon);
-            console.log(icon.src)
         }
         lon = response.city.coord.lon;
         lat = response.city.coord.lat;
@@ -69,13 +62,15 @@ function currentWeather() {
         url: queryURL,
         method: "GET"
     }).then(function (response) {
-        $("#currentTemp").text(response.main.temp);
-        $("#currentHumidity").text(response.main.humidity);
-        $("#currentWind").text(response.wind.speed);
+        $("#currentTemp").text(response.main.temp + "ºF");
+        $("#currentHumidity").text(response.main.humidity + "%");
+        $("#currentWind").text(response.wind.speed + " mph");
         $("#currentDate").text(moment.unix(response.dt).format("YYYY/MM/DD"));
-        console.log(response);
+        console.log(response.dt);
     });
 }
+
+//api for current UV
 function currentUV() {
     var queryURL = "https://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&units=imperial&appid=166a433c57516f51dfab1f7edaed8413";
     $.ajax({
@@ -83,9 +78,15 @@ function currentUV() {
         method: "GET"
     }).then(function (response) {
         $("#currentUV").text(response.value);
-        if (response.value > 5) {
+        if (response.value > 11) {
+            $("#currentUV").css("background", "purple");
+        }else if (response.value > 7) {
             $("#currentUV").css("background", "red");
-        } else {
+        } else if(response.value > 5) {
+            $("#currentUV").css("background", "orange");
+        }else if(response.value > 2) {
+            $("#currentUV").css("background", "yellow");
+        }else {
             $("#currentUV").css("background", "green");
         }
         console.log(response);
@@ -96,15 +97,15 @@ function renderButtons() {
     $("#citiesList").empty();
     localStorage.getItem("citiesList");
     for (var i = 0; i < cities.length; i++) {
-        var li = $("#li");
+        var li = $("<li>");
         var a = $("<button>");
+        li.attr("id", "li");
         a.addClass("city hollow button ");
         a.attr("data-name", cities[i]);
         a.text(cities[i]);
-        $("#li").append(a);
+        $("#li").append(a)
         $("#cityList").append(li);
-        console.log(li);
-        }
+    }
 }
 
 $("#submitButton").on("click", function (event) {
