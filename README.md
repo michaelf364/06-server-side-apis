@@ -25,9 +25,8 @@ This is a website built to host a weather dashboard. It currently only accepts c
 * Open Weather API
 
 ### Screenshots
-|Small|Medium|Large|
-|---|---|---|
-| ![image](./Assets/images/640-start.jpg) | 
+|---|
+| ![image](./Assets/images/image.jpg) | 
 
 ### Current Issues
 

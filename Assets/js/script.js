@@ -7,8 +7,6 @@ var city = "";
 var lat = 0;
 var lon = 0;
 var currentCity = document.querySelector("#currentCity");
-var currentDate = document.querySelector("#currentDate");
-var currentStatus = document.querySelector("#currentStatus");
 var currentTemp = document.querySelector("#currentTemp");
 var currentHumidity = document.querySelector("#currentHumidity");
 
@@ -58,7 +56,6 @@ function fiveDayForecast() {
 //api for current weather
 function currentWeather() {
     var queryURL = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&units=imperial&appid=166a433c57516f51dfab1f7edaed8413";
-    var message = "";
     $.ajax({
         url: queryURL,
         method: "GET"
@@ -66,8 +63,13 @@ function currentWeather() {
         $("#currentTemp").text(response.main.temp + "ºF");
         $("#currentHumidity").text(response.main.humidity + "%");
         $("#currentWind").text(response.wind.speed + " mph");
-        $("#currentDate").text(moment.unix(response.dt).format("YYYY/MM/DD"));
-        $("#currentStatus").attr("src", `http://openweathermap.org/img/wn/${response.weather[0].icon}.png`)
+        var currentDate = $("<h3>");
+        currentDate.attr("id", "currentDate");
+        currentDate.text(moment.unix(response.dt).format("YYYY/MM/DD"));
+        var currentStatus = $("<img>");
+        currentStatus.attr("src", "http://openweathermap.org/img/wn/" + response.weather[0].icon + ".png");
+        $("#currentDate").append(currentStatus);
+        $("#currentCity").append(currentDate);
         console.log(response.weather[0].icon);
     });
 }
@@ -84,13 +86,13 @@ function currentUV() {
         $("#currentUV").css("padding", "5");
         if (response.value > 11) {
             $("#currentUV").css("background", "purple");
-        }else if (response.value > 7) {
+        } else if (response.value > 7) {
             $("#currentUV").css("background", "red");
-        } else if(response.value > 5) {
+        } else if (response.value > 5) {
             $("#currentUV").css("background", "orange");
-        }else if(response.value > 2) {
+        } else if (response.value > 2) {
             $("#currentUV").css("background", "yellow");
-        }else {
+        } else {
             $("#currentUV").css("background", "green");
         }
         console.log(response);
