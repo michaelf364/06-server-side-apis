@@ -3,6 +3,7 @@ var searchbox = document.querySelector("#searchBox");
 var submitButton = document.querySelector("#submitButton");
 var cityList = document.querySelector("#cityList");
 var fiveDay = document.querySelector("#fiveDay");
+var citiesList = localStorage.getItem("citiesList")
 var city = "";
 var lat = 0;
 var lon = 0;
@@ -15,16 +16,13 @@ var currentHumidity = document.querySelector("#currentHumidity");
 // Initial array of cities
 var cities = [];
 
-// Function for dumping the JSON content for each button into the div
-function displayCityInfo() {
-    // http://api.openweathermap.org/data/2.5/forecast/daily?q=Phoenix&cnt=6&units=imperial&appid=166a433c57516f51dfab1f7edaed8413
-    // api.openweathermap.org/data/2.5/uvi?appid=b8e34f445d2a2fa271c223fa00bafb17&lat={lat}&lon={lon}
 
-    fiveDayForecast();
+function initialize() {
+    renderButtons();
 }
 
 function fiveDayForecast() {
-    var queryURL = "https://api.openweathermap.org/data/2.5/forecast/daily?q=" + city + "&units=imperial&cnt=5&appid=166a433c57516f51dfab1f7edaed8413";
+    var queryURL = "https://api.openweathermap.org/data/2.5/forecast/daily?q=" + city + "&units=imperial&cnt=6&appid=166a433c57516f51dfab1f7edaed8413";
     var message = "";
     $.ajax({
         url: queryURL,
@@ -33,7 +31,8 @@ function fiveDayForecast() {
         message = JSON.stringify(response);
         console.log(message);
         console.log(response.list[1].temp.max);
-        for (let i = 0; i < 5; i++) {
+        // for (let i = 0; i < 5; i++) {
+        for (var day of response.list) {
             var card = document.createElement("div");
             card.setAttribute("class", "card cell small-2");
             card.setAttribute("id", "days");
@@ -43,35 +42,28 @@ function fiveDayForecast() {
             var icon = document.createElement("img");
             var temp = document.createElement("p");
             var humid = document.createElement("p");
-            temp.textContent = `${response.list[i].temp.max}` + "&deg;";
-            date.textContent = moment.unix(response.list[i].dt).format("YYYY/MM/DD");
-            icon.src = `http://openweathermap.org/img/wn/${response["list"][i]["weather"][0]["icon"]}.png`;            temp.textContent = response.list[i].temp.max;
-            humid.innerHTML = response.list[i].humidity +"%";
+            temp.innerHTML = `${day.temp.max}&deg;F`;
+            date.textContent = moment.unix(day.dt).format("YYYY/MM/DD");
+            icon.src = `http://openweathermap.org/img/wn/${day.weather[0].icon}.png`;
+            humid.innerHTML = `${day.humidity}%`;
             fiveDay.appendChild(card);
             card.appendChild(cardSection);
             cardSection.appendChild(date);
             cardSection.appendChild(icon);
-            console.log(temp.attributes);
             cardSection.appendChild(temp);
-            var butt = document.createElement("span");
-            butt.textContent = "butt"
-            cardSection.appendChild(butt);
             cardSection.appendChild(humid);
-            console.log(response.list[i].weather[0].icon);
+            console.log(day.weather[0].icon);
             console.log(icon.src)
         }
         lon = response.city.coord.lon;
         lat = response.city.coord.lat;
-        console.log(lon);
-        console.log(lat);
-
         currentWeather();
         currentUV();
     });
 }
 
 function currentWeather() {
-    var queryURL = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&appid=166a433c57516f51dfab1f7edaed8413";
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&units=imperial&appid=166a433c57516f51dfab1f7edaed8413";
     var message = "";
     $.ajax({
         url: queryURL,
@@ -80,69 +72,60 @@ function currentWeather() {
         $("#currentTemp").text(response.main.temp);
         $("#currentHumidity").text(response.main.humidity);
         $("#currentWind").text(response.wind.speed);
+        $("#currentDate").text(moment.unix(response.dt).format("YYYY/MM/DD"));
         console.log(response);
     });
 }
 function currentUV() {
-    var queryURL = "https://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&appid=166a433c57516f51dfab1f7edaed8413";
-    var message = "";
+    var queryURL = "https://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&units=imperial&appid=166a433c57516f51dfab1f7edaed8413";
     $.ajax({
         url: queryURL,
         method: "GET"
     }).then(function (response) {
         $("#currentUV").text(response.value);
+        if (response.value > 5) {
+            $("#currentUV").css("background", "red");
+        } else {
+            $("#currentUV").css("background", "green");
+        }
         console.log(response);
     });
 }
-// Function for displaying movie data
+
 function renderButtons() {
-
-    // Deleting the buttons prior to adding new movies
-    // (this is necessary otherwise you will have repeat buttons)
-    $("#cityList").empty();
-    console.log(cities);
-
-    // Looping through the array of movies
+    $("#citiesList").empty();
+    localStorage.getItem("citiesList");
     for (var i = 0; i < cities.length; i++) {
-
-        // Then dynamically generating buttons for each movie in the array
-        // This code $("<button>") is all jQuery needs to create the beginning and end tag. (<button></button>)
+        var li = $("#li");
         var a = $("<button>");
-        // Adding a class of movie to our button
-        a.addClass("city");
-        a.addClass("button");
-        // Adding a data-attribute
+        a.addClass("city hollow button ");
         a.attr("data-name", cities[i]);
-        // Providing the initial button text
         a.text(cities[i]);
-        // Adding the button to the buttons-view div
-        $("#cityList").append(a);
-    }
+        $("#li").append(a);
+        $("#cityList").append(li);
+        console.log(li);
+        }
 }
 
-// This function handles events where one button is clicked
 $("#submitButton").on("click", function (event) {
     event.preventDefault();
-
-    // This line grabs the input from the textbox
+    fiveDay.innerHTML = "";
     city = $("#searchBox").val().trim();
-
-    // Adding the movie from the textbox to our array
+    currentCity.innerHTML = city;
     cities.push(city);
-    console.log(cities);
-
-    // Calling renderButtons which handles the processing of our movie array
+    localStorage.setItem("citiesList", JSON.stringify(cities));
     renderButtons();
-    displayCityInfo();
+    fiveDayForecast();
+
     $("#searchBox").val("");
 });
 
 // Function for displaying the movie info
 // Using $(document).on instead of $(".movie").on to add event listeners to dynamically generated elements
 $(document).on("click", ".city", function () {
+    fiveDay.innerHTML = "";
     city = $(this).attr("data-name");
-    displayCityInfo();
+    currentCity.innerHTML = city;
+    fiveDayForecast();
 });
 
-// Calling the renderButtons function to display the initial buttons
-renderButtons();

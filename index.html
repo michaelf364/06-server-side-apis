@@ -16,7 +16,7 @@
     </header>
     <main class="grid-container grid-frame">
         <div class="grid-x">
-            <section class="grid-y small-2">
+            <section class="grid-y small-2" id="searchBar">
                 <div class="cell">
                     <label for="searchBox" class="input-group-label">Search for City</label>
                     <div class="input-group">
@@ -26,7 +26,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="cell">
+                <div class="cell auto">
                     <div id="cityList">
                     </div>
                 </div>
@@ -35,7 +35,7 @@
                 <div class="grid-x">
                     <div class="card" style="width: 100%;">
                         <div class="card-section">
-                            <h3><strong id="currentCity"><span id="currentDate"><i class="currentStatus"></i></span></strong></h3>
+                            <h3><strong id="currentCity"><span id="currentDate"></span><i class="currentStatus"></i></strong></h3>
                             <p>Temperature: <span id="currentTemp"></span></p>
                             <p>Humidity: <span id="currentHumidity"></span></p>
                             <p>Wind Speed: <span id="currentWind"></span></p>
@@ -46,9 +46,9 @@
                 <div class="grid-x">
                     <h3>Five Day Forecast</h3>
                 </div>
-                <div class="grid-x" id="fiveDay">
+                <ol class="grid-x" id="fiveDay">
                     
-                </div>
+                </ol>
             </section>
         </div>
     </main>
