@@ -3,7 +3,6 @@ var searchbox = document.querySelector("#searchBox");
 var submitButton = document.querySelector("#submitButton");
 var cityList = document.querySelector("#cityList");
 var fiveDay = document.querySelector("#fiveDay");
-var citiesList = localStorage.getItem("citiesList")
 var city = "";
 var lat = 0;
 var lon = 0;
@@ -18,6 +17,7 @@ var cities = [];
 
 
 function initialize() {
+    loadStorage();
     renderButtons();
 }
 
@@ -55,6 +55,7 @@ function fiveDayForecast() {
     });
 }
 
+//api for current weather
 function currentWeather() {
     var queryURL = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&units=imperial&appid=166a433c57516f51dfab1f7edaed8413";
     var message = "";
@@ -66,7 +67,8 @@ function currentWeather() {
         $("#currentHumidity").text(response.main.humidity + "%");
         $("#currentWind").text(response.wind.speed + " mph");
         $("#currentDate").text(moment.unix(response.dt).format("YYYY/MM/DD"));
-        console.log(response.dt);
+        $("#currentStatus").attr("src", `http://openweathermap.org/img/wn/${response.weather[0].icon}.png`)
+        console.log(response.weather[0].icon);
     });
 }
 
@@ -78,6 +80,8 @@ function currentUV() {
         method: "GET"
     }).then(function (response) {
         $("#currentUV").text(response.value);
+        $("#currentUV").css("color", "white");
+        $("#currentUV").css("padding", "5");
         if (response.value > 11) {
             $("#currentUV").css("background", "purple");
         }else if (response.value > 7) {
@@ -92,19 +96,21 @@ function currentUV() {
         console.log(response);
     });
 }
+// loads from local storage
+function loadStorage() {
+    var storage = JSON.parse(localStorage.getItem("citiesList"));
+    if (storage !== null) {
+        cities = storage;
+    }
+}
 
 function renderButtons() {
-    $("#citiesList").empty();
-    localStorage.getItem("citiesList");
     for (var i = 0; i < cities.length; i++) {
-        var li = $("<li>");
         var a = $("<button>");
-        li.attr("id", "li");
         a.addClass("city hollow button ");
         a.attr("data-name", cities[i]);
         a.text(cities[i]);
-        $("#li").append(a)
-        $("#cityList").append(li);
+        $("#cityList").append(a);
     }
 }
 
