@@ -13,10 +13,13 @@ var currentHumidity = document.querySelector("#currentHumidity");
 // Initial array of cities
 var cities = [];
 
+initialize();
 
 function initialize() {
     loadStorage();
+   
     renderButtons();
+    lastCity();
 }
 
 function fiveDayForecast() {
@@ -68,8 +71,9 @@ function currentWeather() {
         currentDate.text(moment.unix(response.dt).format("YYYY/MM/DD"));
         var currentStatus = $("<img>");
         currentStatus.attr("src", "http://openweathermap.org/img/wn/" + response.weather[0].icon + ".png");
-        $("#currentDate").append(currentStatus);
+        
         $("#currentCity").append(currentDate);
+        $("#currentDate").append(currentStatus);
         console.log(response.weather[0].icon);
     });
 }
@@ -106,7 +110,15 @@ function loadStorage() {
     }
 }
 
+function lastCity() {
+    var lastSearched = cities.length - 1;
+    city = cities[lastSearched];
+    currentCity.innerHTML = city;
+    fiveDayForecast();
+}
+
 function renderButtons() {
+    $("#cityList").empty();
     for (var i = 0; i < cities.length; i++) {
         var a = $("<button>");
         a.addClass("city hollow button ");
