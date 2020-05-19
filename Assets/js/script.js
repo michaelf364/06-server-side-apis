@@ -66,9 +66,9 @@ function currentWeather() {
         $("#currentTemp").text(response.main.temp + "ºF");
         $("#currentHumidity").text(response.main.humidity + "%");
         $("#currentWind").text(response.wind.speed + " mph");
-        var currentDate = $("<h3>");
+        var currentDate = $("<span>");
         currentDate.attr("id", "currentDate");
-        currentDate.text(moment.unix(response.dt).format("YYYY/MM/DD"));
+        currentDate.text(" (" + moment.unix(response.dt).format("YYYY/MM/DD") + ") ");
         var currentStatus = $("<img>");
         currentStatus.attr("src", "http://openweathermap.org/img/wn/" + response.weather[0].icon + ".png");
         
